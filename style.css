@@ -1,0 +1,53 @@
+html, body {
+    max-height: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+* {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #aac;
+    text-align: center;
+    padding: 1%;
+    box-shadow: 2px 2px 5px #666;
+    text-shadow: 1px 1px 1px #666;
+    border-radius: 20px/50%;
+    margin-bottom: 35px;
+}
+
+table {
+    margin: auto;
+    border-spacing: 0;
+}
+
+th {
+    width: 120px;
+    height: 126px;
+    font-size: 80px;
+    border: 2px solid #88a;
+}
+
+.light {
+    background-color: #aac;
+}
+
+.dark {
+    background-color: #669;
+}
+
+.win {
+    background-color: #7c7;
+}
+
+.draw {
+    background-color: #cc7;
+}
+
+.right {
+    margin-top: 25px;
+    float: right;
+    font-size: 200%;
+}

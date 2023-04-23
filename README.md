@@ -1,9 +1,3 @@
-# static-site-template
-a template for a static site
+# tic-tac-toe
 
-## usage
-- clone this repo
-- replace `index.html`
-- add more files
-- await autobuild
-- deploy container
+just play the game
