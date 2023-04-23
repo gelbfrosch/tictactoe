@@ -1,0 +1,8 @@
+Dockerfile*
+.dockerignore
+.git
+.github
+README*
+LICENSE*
+*.yaml
+*.yml
