@@ -1,16 +1,22 @@
 class Board {
-    /* Spielsteine */
-    static stones = ["\x0a", "\u26AA", "\u26AB"];
-
-    /* Brett */
-    state;
-
-    /* aktiver Spieler */
-    currentPlayer = 1;
-
     /* erstelle leeres Brett */
     constructor(length = 3 /*, dims = 2 */) {
+        // prefer constructor over fields
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#browser_compatibility
+        // wrt iOS < 14.5 https://bugs.webkit.org/show_bug.cgi?id=194095
+        /* Spielsteine */
+        // static
+        this.stones = ["\x0a", "\u26AA", "\u26AB"];
+
+        /* Brett */
+        this.state;
+
+        /* aktiver Spieler */
+        this.currentPlayer = 1;
+
+        // initialisiere leeres Brett
         this.state = Array(length).fill(0).map(() => Array(length).fill(0));
+        // zeige Brett
         this.createBoard()
     }
 
@@ -40,7 +46,7 @@ class Board {
         this.state.forEach(
             (row, x) => (row.forEach(
                 (field, y) => (
-                    document.getElementById("o"+x+y).innerHTML = Board.stones[field])
+                    document.getElementById("o"+x+y).innerHTML = this.stones[field])
             ))
         );
     }
@@ -49,7 +55,7 @@ class Board {
     static showWinner(winner) {
         let title = document.getElementById("title");
         if(winner) {
-            title.innerHTML = `Player ${Board.stones[winner]} wins!`;
+            title.innerHTML = `Player ${winner} wins!`;
             title.classList.add("win");
         } else {
             title.innerHTML = `No winner`;
@@ -102,7 +108,7 @@ class Board {
             this.updateBoard();
             let winner = this.hasWinner();
             if (winner) {
-                Board.showWinner(winner);
+                Board.showWinner(this.stones[winner]);
                 return winner;
             }
             let empty = this.hasEmpty();
